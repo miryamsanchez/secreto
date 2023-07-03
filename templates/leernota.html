@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leer Nota</title>
+</head>
+<body>
+    <h1>Leer Nota</h1>
+    <form action="/nota" method="GET">
+        <label for="codigo">Código de la Nota:</label>
+        <input type="text" id="codigo" name="codigo">
+        <input type="submit" value="Leer Nota">
+    </form>
+    <div id="nota_leida"></div>
+
+    <script>
+        const form = document.querySelector('form');
+        const notaLeida = document.getElementById('nota_leida');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const codigo = document.getElementById('codigo').value;
+            fetch('/nota/' + codigo)
+                .then(response => response.text())
+                .then(data => notaLeida.textContent = data);
+        });
+    </script>
+</body>
