@@ -21,5 +21,9 @@ def guardar_nota(codigo):
 
 if __name__ == "__main__":
     crear_tabla()
-    app.run()
+    app.run()  
+
+@app.errorhandler(404)
+def pagina_no_encontrada():
+    return render_template("404.html") 
 
