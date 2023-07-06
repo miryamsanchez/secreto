@@ -12,6 +12,7 @@ def crear_tabla():
             codigo CHAR(40) PRIMARY KEY,
             texto TEXT NOT NULL)
        """)
+    con.commit()
     con.close()
     
 def leer_nota(codigo):
